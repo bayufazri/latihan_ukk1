@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <title>Tambah Data Siswa</title>
 </head>
 <body>
-    <button><a href="{{ route('students.create') }}">Tambah Data</a></button>
+    <div class="container">
+    
+        <h2>Tabel Siswa Baru</h2>
+    <div class="button-tambah">
+        <button><a href="{{ route('students.create') }}">Tambah Data</a></button>
+    </div>
 
-     <table border="1">
+
+     <table class="table1">
         <tr>
             <th>No</th>
             <th>NIS</th>
@@ -37,18 +44,20 @@
             <td>{{ $student->jurusan }}</td>
             <td>
                 <form action="{{ route('students.destroy',$student->id) }}" method="POST">
-                    <button><a href="{{ route('students.edit',$student->id) }}">Edit</a></button>
+                    <button class="show"><a href="{{ route('students.show',$student->id) }}">Show</a></button>
+   
+                    <button class="edit"><a href="{{ route('students.edit',$student->id) }}">Edit</a></button>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="delete">Delete</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
-  
+  </div>
 </body>
 </html>
 

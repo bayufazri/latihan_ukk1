@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     <title>Tambah Data</title>
 </head>
 <body>
-     <a href="{{ route('students.index') }}"> Back</a>
+     <div class="container">
+    <h2>Buat Data Siswa Baru</h2>
+    <button><a href="{{ route('students.index') }}"> Back</a></button>
 
 @if ($errors->any())
     <div>
@@ -22,7 +25,6 @@
 
      <form action="{{ route('students.store') }}" method="POST">
     @csrf
-  
     <table>
         <tr>
             <th>NIS</th>
@@ -73,12 +75,12 @@
         <tr>
             <th></th>
             <th></th>
-            <th><input type="submit"></th>
+            <th><input type="submit" class="submit"></th>
         </tr>
     </table>
    
 </form>
-
+</div>
 </body>
 </html>
 
